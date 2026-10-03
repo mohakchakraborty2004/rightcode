@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Join the Rightcode waitlist for early access and product updates."
+    />
+    <title>Rightcode — Join the waitlist</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: #080b12;
+        color: #f7f8fb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 20% 15%, rgba(101, 76, 255, 0.2), transparent 32rem),
+          radial-gradient(circle at 85% 80%, rgba(0, 210, 170, 0.13), transparent 28rem),
+          #080b12;
+      }
+
+      main {
+        width: min(680px, calc(100% - 2rem));
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        margin-bottom: 4rem;
+        color: #fff;
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .logo-mark {
+        width: 1.8rem;
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        border-radius: 0.55rem;
+        background: linear-gradient(135deg, #7c68ff, #38ddc0);
+        box-shadow: 0 0 30px rgba(124, 104, 255, 0.35);
+      }
+
+      .eyebrow {
+        margin: 0 0 1.25rem;
+        color: #a99cff;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 620px;
+        margin: 0 auto;
+        font-size: clamp(2.8rem, 9vw, 5.5rem);
+        line-height: 0.98;
+        letter-spacing: -0.065em;
+      }
+
+      h1 span {
+        color: transparent;
+        background: linear-gradient(90deg, #a99cff, #53e2ca);
+        background-clip: text;
+        -webkit-background-clip: text;
+      }
+
+      .intro {
+        max-width: 520px;
+        margin: 1.75rem auto 2.25rem;
+        color: #aeb4c2;
+        font-size: 1.08rem;
+        line-height: 1.7;
+      }
+
+      form {
+        display: flex;
+        gap: 0.65rem;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 0.45rem;
+        border: 1px solid #282e3b;
+        border-radius: 0.9rem;
+        background: rgba(18, 22, 32, 0.78);
+        box-shadow: 0 20px 70px rgba(0, 0, 0, 0.32);
+        backdrop-filter: blur(12px);
+      }
+
+      input,
+      button {
+        min-height: 3.15rem;
+        border: 0;
+        border-radius: 0.65rem;
+        font: inherit;
+      }
+
+      input {
+        min-width: 0;
+        flex: 1;
+        padding: 0 1rem;
+        outline: none;
+        background: transparent;
+        color: #fff;
+      }
+
+      input::placeholder {
+        color: #777e8e;
+      }
+
+      input:focus-visible {
+        box-shadow: inset 0 0 0 2px #7c68ff;
+      }
+
+      button {
+        padding: 0 1.35rem;
+        cursor: pointer;
+        background: #f7f8fb;
+        color: #0b0e14;
+        font-weight: 750;
+        transition: transform 160ms ease, background 160ms ease;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        background: #fff;
+      }
+
+      button:focus-visible {
+        outline: 3px solid #7c68ff;
+        outline-offset: 2px;
+      }
+
+      .note {
+        min-height: 1.5rem;
+        margin: 1rem 0 0;
+        color: #777e8e;
+        font-size: 0.82rem;
+      }
+
+      .note.success {
+        color: #53e2ca;
+      }
+
+      @media (max-width: 540px) {
+        main {
+          padding-inline: 0.25rem;
+        }
+
+        .logo {
+          margin-bottom: 3rem;
+        }
+
+        form {
+          flex-direction: column;
+        }
+
+        input,
+        button {
+          width: 100%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        button {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="logo" aria-label="Rightcode">
+        <span class="logo-mark" aria-hidden="true">R</span>
+        Rightcode
+      </div>
+
+      <p class="eyebrow">Launching soon</p>
+      <h1>Build the right thing, <span>faster.</span></h1>
+      <p class="intro">
+        A better way to turn ideas into production-ready software. Join the waitlist and
+        be among the first to try Rightcode.
+      </p>
+
+      <form id="waitlist-form">
+        <label for="email" hidden>Email address</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="you@example.com"
+          aria-describedby="form-note"
+          required
+        />
+        <button type="submit">Join waitlist</button>
+      </form>
+      <p class="note" id="form-note" aria-live="polite">No spam. Just launch updates.</p>
+    </main>
+
+    <script>
+      const form = document.querySelector('#waitlist-form');
+      const note = document.querySelector('#form-note');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        note.textContent = "You're on the list — we'll be in touch.";
+        note.classList.add('success');
+        form.reset();
+      });
+    </script>
+  </body>
+</html>
